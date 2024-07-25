@@ -9,4 +9,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Execute command using Repo Secrets
-      run: sshpass -p '${{ secrets.AUTO_RENEW_SERV00 }}' ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -tt qingyuwuxi@s7.serv00.com "pm2 resurrect && exit" 
+      run: sshpass -p '${{ secrets.AUTO_RENEW_SERV00 }}' ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -tt qingyuwuxi@s7.serv00.com "/home/qingyuwuxi/.npm-global/bin/pm2 resurrect && exit" 
