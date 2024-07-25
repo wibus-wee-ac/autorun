@@ -1,0 +1,13 @@
+name: Auto Renew Server
+on:
+  schedule:
+    - cron: '0 0 * * *'  # 每天午夜执行
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  auto_renew:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Execute command using Repo Secrets
+      run: |
+           ${{ secrets.AUTO_RENEW_SERV00 }}
