@@ -1,0 +1,29 @@
+name: Test
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: Run test in FreeBSD
+    steps:
+    - uses: actions/checkout@v4
+    - name: Test in FreeBSD
+      id: test
+      uses: vmactions/freebsd-vm@v1
+      with:
+        usesh: true
+        # prepare: |
+        run: |
+          git clone https://github.com/open-webui/open-webui.git
+          cd open-webui/
+
+          cp -RPp .env.example .env
+
+          npm i
+          npm run build
+
+          cd ./backend
+          pip install -r requirements.txt -U
+          # bash start.sh
