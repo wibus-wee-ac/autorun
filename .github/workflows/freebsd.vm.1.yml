@@ -14,7 +14,8 @@ jobs:
       uses: vmactions/freebsd-vm@v1
       with:
         usesh: true
-        # prepare: |
+        prepare: |
+          sudo pkg install -y git node npm python3 py38-pip
         run: |
           git clone https://github.com/open-webui/open-webui.git
           cd open-webui/
